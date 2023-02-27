@@ -96,6 +96,10 @@ contract BoredApeNFT is Ownable {
         emit withdrawn(_to, amount, "Stake withdrawn successfully...!");
     }
 
+     function holderInfo(address _holder) external view returns (Stakers memory) {
+        return stakers[_holder];
+    }
+
     //////////// CORE V2 //////////////
     function _stake(uint256 amount) internal {
         ApeCoin.transferFrom(msg.sender, address(0), amount);
@@ -117,7 +121,7 @@ contract BoredApeNFT is Ownable {
         // (_staker.amountStaked / TotalStake) * (TotalRewards / duration);
         // uint256 perc = 5 / 100;
         uint256 time = 31536000 - duration;
-        reward = (_amountStaked * 5 / 100) / time;
+        uint256 cummulativeReturn = _amountStaked ;
     }
 
     function _reset() internal {
