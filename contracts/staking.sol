@@ -118,10 +118,8 @@ contract BoredApeNFT is Ownable {
         Stakers memory _staker = stakers[msg.sender];
         uint256 duration = block.timestamp - _staker.start_Time;
         uint256 _amountStaked = _staker.amountStaked;
-        // (_staker.amountStaked / TotalStake) * (TotalRewards / duration);
-        // uint256 perc = 5 / 100;
-        uint256 time = 31536000 - duration;
-        uint256 cummulativeReturn = _amountStaked ;
+        uint256 second = 31536000;
+        reward = (_amountStaked * 15 / 100) / (second - duration);       
     }
 
     function _reset() internal {
