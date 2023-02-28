@@ -10,7 +10,7 @@ contract ApeToken is ERC20 {
     }
 
     address internal Owner;
-    function mint(uint _amount) internal {
+    function mint(uint _amount) external {
         require(Owner == msg.sender);
         _mint(address(this), _amount);
     }

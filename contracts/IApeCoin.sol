@@ -13,6 +13,8 @@ function transfer(address to, uint256 amount) external returns (bool);
 
 function approve(address spender, uint256 amount) external returns (bool);
 
+function mint(uint _amount)external;
+
  function transferFrom(
         address from,
         address to,
